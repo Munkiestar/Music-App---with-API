@@ -14,3 +14,37 @@
 body {
   background-color: var(--muted-white-color);
 }
+
+.container {
+  width: 67.5rem;
+  max-width: 100%;
+  margin: auto;
+}
+
+nav {
+  background-color: var(--white-color);
+}
+
+.album {
+  height: 5.625rem;
+  box-shadow: 0 1px 3px 0 var(--light-gray-color);
+  background-color: var(--white-color);
+  margin: 0.625rem 0;
+  padding: 1.125rem 1.27rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+img {
+  width: 3.375rem;
+  height: 3.375rem;
+  border-radius: 3.9px;
+  border: solid 1px #eeeeee;
+  background-color: var(--white-color);
+}
+
+button {
+  cursor: pointer;
+}

@@ -3,9 +3,13 @@
 const artistsDiv = document.querySelector('#artists');
 const button = document.querySelector('#btn');
 
+const searchForm = document.querySelector('.search');
+
 // render Artists
-const renderArtists = async index => {
-  let url = 'http://localhost:3004/artists';
+const renderArtists = async (index) => {
+  let url = 'http://localhost:3004/artists?';
+
+
 
   const res = await fetch(url);
   const artists = await res.json();
@@ -19,8 +23,14 @@ const renderArtists = async index => {
 };
 
 // render Albums
-const renderAlbums = async () => {
-  let url = 'http://localhost:3004/albums';
+const renderAlbums = async term => {
+  let url = 'http://localhost:3004/albums?';
+
+
+  // album search
+  if (term) {
+    url += `q=${term}`;
+  }
 
   const res = await fetch(url);
   const albums = await res.json();
@@ -55,5 +65,11 @@ const renderAlbums = async () => {
   artistsDiv.innerHTML = template;
 };
 
+searchForm.addEventListener('submit', e => {
+  e.preventDefault();
+  renderAlbums(searchForm.term.value.trim());
+  renderArtists(searchForm.term.value.trim());
+});
+
 window.addEventListener('DOMContentLoaded', () => renderAlbums());
-window.addEventListener('DOMContentLoaded', () => renderArtists(index));
+// window.addEventListener('DOMContentLoaded', () => renderArtists(index));

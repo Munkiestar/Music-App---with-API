@@ -19,7 +19,7 @@ const renderArtists = async index => {
 };
 
 renderArtists(id).then(data => {
-  document.getElementsById('album-artist').innerHTML = data[id];
+  return (document.getElementById('album-artist').innerHTML = data[id]);
 });
 
 // render clicked artist
@@ -47,7 +47,6 @@ const renderDetails = async () => {
 
   title.textContent = artist.title;
   artistsDiv.innerHTML = template;
-
 };
 
 // load content
